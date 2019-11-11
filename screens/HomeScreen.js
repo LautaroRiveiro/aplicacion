@@ -1,5 +1,5 @@
 import React from 'react';
-import {ActivityIndicator, AsyncStorage, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {ActivityIndicator, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {getEnCartelera, getPopulares, getProximosEstrenos} from '../api/api';
 import type PeliculaResponse from '../api/PeliculaResponse';
 import Spacer from '../components/Spacer';
@@ -16,11 +16,11 @@ export default class HomeScreen extends React.Component<{}, State> {
     static navigationOptions = (props) => ({
         title: '',
         headerStyle: {
-            backgroundColor: 'transparent'
+            backgroundColor: 'transparent',
         },
         headerRight: () => (
-            <TouchableOpacity onPress={props.navigation.getParam('onSalir')} style={styles.salir}>
-                <Text>SALIR</Text>
+            <TouchableOpacity onPress={() => props.navigation.toggleDrawer()} style={styles.menu}>
+                <Text>MENÚ</Text>
             </TouchableOpacity>
         ),
     });
@@ -104,16 +104,11 @@ export default class HomeScreen extends React.Component<{}, State> {
     irADetalle = (id: number) => {
         this.props.navigation.push('Details', {id});
     };
-
-    _signOutAsync = async () => {
-        await AsyncStorage.clear();
-        this.props.navigation.navigate('Auth');
-    };
 }
 
 const styles = StyleSheet.create({
     container: {
-        padding: 12
+        padding: 12,
     },
     loading: {
         flex: 1,
@@ -126,7 +121,7 @@ const styles = StyleSheet.create({
     fila: {
         flexDirection: 'row',
     },
-    salir: {
+    menu: {
         paddingHorizontal: 12,
     },
 });
