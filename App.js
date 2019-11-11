@@ -1,20 +1,10 @@
 import React from 'react';
-import {AsyncStorage, Button, Text, View} from 'react-native';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import AuthLoadingScreen from './screens/AuthLoadingScreen';
 import SignInScreen from './screens/SignInScreen';
 import HomeScreen from './screens/HomeScreen';
-
-class DetailsScreen extends React.Component {
-    render() {
-        return (
-            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-                <Text>Details Screen</Text>
-            </View>
-        );
-    }
-}
+import DetailsScreen from './screens/DetailsScreen';
 
 const AppStack = createStackNavigator(
     {
@@ -29,7 +19,7 @@ const AppStack = createStackNavigator(
 const AuthStack = createStackNavigator({
     SignIn: SignInScreen,
 }, {
-    headerMode: 'none'
+    headerMode: 'none',
 });
 
 const AppContainer = createAppContainer(
