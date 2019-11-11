@@ -1,4 +1,5 @@
 interface PeliculaResponse {
+    id: number,
     overview: string,
     popularity: number,
     genres: {id: number, name: string}[],
