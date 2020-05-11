@@ -10,7 +10,6 @@ En el readme del proyecto se debe agregar de manera muy detallada las herramient
 Subir el código fuente a un repo público y pasarme la data para clonarlo.
 
 ## Pasos para reproducir
-
 npm install
 
 ### Android
